@@ -1,2 +1,2 @@
-# bithomp-mobile
-Bithomp mobile app
+# bithompApp
+React Native bithomp app
