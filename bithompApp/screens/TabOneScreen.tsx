@@ -1,24 +1,38 @@
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import Container from '../components/Container';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+  const [text, onChangeText] = React.useState("Useless Text");
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+    <View>
+      <Container>
+        <SafeAreaView>
+          <TextInput
+            style={styles.search}
+            onChangeText={onChangeText}
+            value={text}
+            placeholder="useless placeholder"
+          //keyboardType="numeric"
+          />
+          <Text>Vasia</Text>
+        </SafeAreaView>
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      </Container>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  search: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    color: "white",
   },
   title: {
     fontSize: 20,
